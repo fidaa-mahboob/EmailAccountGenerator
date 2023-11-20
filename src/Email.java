@@ -5,10 +5,13 @@ public class Email {
     private String firstName;
     private String lastName;
     private String password;
+    private String emailAddress;
     private String department;
     private int passwordlength = 8;
     private String mailboxCapacity;
     private String alternateEmail;
+
+    private String companyDomainName = "company.com";
 
 
     public Email(String firstName, String lastName) {
@@ -19,6 +22,8 @@ public class Email {
         System.out.println("Deparment: " + this.department);
         this.password = generateRandomPassword(passwordlength);
         System.out.println(generateRandomPassword(8));
+        this.emailAddress = firstName.toLowerCase() + '.' + lastName.toLowerCase() + "@" + department + "." + companyDomainName;
+        System.out.println("Your email address: " + this.emailAddress);
     }
 
     public String getDepartment() {
@@ -26,9 +31,9 @@ public class Email {
         Scanner value = new Scanner(System.in);
         int departmentValue = value.nextInt();
         return switch (departmentValue) {
-            case 1 -> "Sales";
-            case 2 -> "Engineering";
-            case 3 -> "Accounting";
+            case 1 -> "sales";
+            case 2 -> "engineering";
+            case 3 -> "accounting";s
             default -> "None";
         };
     }
