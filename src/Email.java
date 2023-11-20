@@ -33,7 +33,7 @@ public class Email {
         return switch (departmentValue) {
             case 1 -> "sales";
             case 2 -> "engineering";
-            case 3 -> "accounting";s
+            case 3 -> "accounting";
             default -> "None";
         };
     }
