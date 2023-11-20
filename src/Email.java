@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Email {
@@ -5,6 +6,7 @@ public class Email {
     private String lastName;
     private String password;
     private String department;
+    private int passwordlength = 8;
     private String mailboxCapacity;
     private String alternateEmail;
 
@@ -15,6 +17,8 @@ public class Email {
         System.out.println("Email Created: " + firstName + " " + lastName);
         this.department = getDepartment();
         System.out.println("Deparment: " + this.department);
+        this.password = generateRandomPassword(passwordlength);
+        System.out.println(generateRandomPassword(8));
     }
 
     public String getDepartment() {
@@ -27,6 +31,17 @@ public class Email {
             case 3 -> "Accounting";
             default -> "None";
         };
+    }
+
+    private String generateRandomPassword(int length){
+        String passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@£.,";
+        char[] password = new char[length];
+        for(int i = 0; i < length; i++){
+            int rand = (int) (Math.random()*passwordSet.length());
+            password[i] = passwordSet.charAt(rand);
+        }
+
+        return new String(password);
     }
 
 
